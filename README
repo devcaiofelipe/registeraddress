@@ -1,0 +1,13 @@
+# Para instalar as lib necessária - pip install -r requirements.txt
+
+# Usei 2 views diferentes para fazer o cadastro de endereços, a primeira SearchCEP recebi o primeiro formulário
+contendo apenas o cep, e verifiquei se existia no DB, se não existisse, eu fiz uma request para a API do viacep
+caso achasse o cep em alguma das 2 tentativas, criei uma session e enviei os dados para o frontend por ela
+e auto completei os dados no formulário
+
+# Na view RegisterAddress eu recebi todos os dados vindo do segundo formulário, passando pela funcao "check_data"
+para verificar se os campos obrigatórios estavam preenchidos, se retornasse True, eu tentei recuperar o cep do banco
+caso ele existisse eu fazia uma atualizacao, caso nao existisse eu criava o endereço com os dados recebidos.
+
+# Fiz tudo pelo backend mas poderia ter sido resolvido usando ajax que a própria API viacep fornece
+que ja preencheria tudo no frontend sem precisar fazer requisicoes ao servidor.
